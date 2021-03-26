@@ -11,15 +11,18 @@ This MATLAB codes simulates deterministic or randomized version of the *Surface 
 
 This code currently needs:
 
+* the pre-processing data;
 * the MATLAB image processing toolbox;
-* the Wavelab toolbox ([5]).
+* the Wavelab toolbox ([5]);
 * optionally, the Parallel Computing toolbox.
 
-Copy the folder 'Wavelab850' into the Toolbox folder of your Matlab root folder.
+1. Download the pre-processing data from 'https://filesender.renater.fr/?s=download&token=7f3761e3-a9f8-4c94-80d4-057a8010824f', extract the file 'data.zip' and put the folder 'data' into './POD/'.
 
-Several parameters can be changed easily in `functions/set_model.m`.
+2. Extract the 'Wavelab850.zip' and copy the folder 'Wavelab850' into the Toolbox folder of your Matlab root folder.
 
-Launch the script `main.m` to execute the algorithm. Plots and MAT-files are saved each day of simulation in the chosen output folder.
+3. Several parameters can be changed easily in `functions/set_model.m`.
+
+4. Launch the script `main.m` to execute the algorithm. Plots and MAT-files are saved each day of simulation in the chosen output folder.
 
 ## Notes
 
