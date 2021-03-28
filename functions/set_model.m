@@ -35,6 +35,7 @@ function model = set_model()
 stochastic_simulation = 0;
 % Usual SQG model (stochastic_simulation=false)
 % or SQG_MU model (stochastic_simulation=true)
+is_salt = 0; % LU model = false; SALT model = true
 
 % Duration of the simulation (in seconds)
 %----------------------------------------
@@ -97,7 +98,7 @@ type_forcing = 'None';
 
 % Resolution and grid
 %--------------------
-resolution = 128;
+resolution = 512;
 % The number of grid point is resolution^2
 % It has to be an even integer
 dealias_method = 'exp';
@@ -305,6 +306,7 @@ model = fct_physical_param();
 
 % Other parameters
 model.is_stochastic = stochastic_simulation; % whether stochastic or deterministic simulation
+model.is_salt = is_salt;
 model.sigma = sigma; % stochastic parameters
 model.init = init; % the initial condition parameters
 model.type_data = model.init.type_data; % left for backward-compatibility [TODO] remove?

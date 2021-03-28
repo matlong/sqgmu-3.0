@@ -41,8 +41,10 @@ function d_fft_b_adv = deriv_fft_advection(model, fft_b, w, varargin)
         d2_a22 = reshape(model.sigma.D2*a22(:), model.grid.MX);
         d1_a12 = reshape(model.sigma.D1*a12(:), model.grid.MX);
         d2_a12 = reshape(model.sigma.D2*a12(:), model.grid.MX);
-        w(:,:,1) = w(:,:,1) - 0.5*(d1_a11 + d2_a12);
-        w(:,:,2) = w(:,:,2) - 0.5*(d1_a12 + d2_a22);
+        if ~model.is_salt
+            w(:,:,1) = w(:,:,1) - 0.5*(d1_a11 + d2_a12);
+            w(:,:,2) = w(:,:,2) - 0.5*(d1_a12 + d2_a22);
+        end
         % remove the irrotational (i.e. with divergence) component
         if model.sigma.divfree_projection
             wir = helmholtz_decomp(model, w, 'irr');
